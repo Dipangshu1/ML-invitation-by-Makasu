@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAKASU IS INVITING YOU</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://images4.alphacoders.com/100/1002134.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal {
+      background-color: white;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .modal p {
+      font-size: 1.3rem;
+      margin: 10px 0;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .no {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="miaw miaw miaw song sad (lyrics video visual).mp3" type="audio/mpeg">
+</audio>
+
+<div class="modal-overlay" id="gameModal">
+  <div class="modal">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Mobile_Legends_Bang_Bang.png/440px-Mobile_Legends_Bang_Bang.png" alt="Mobile Legends">
+    <p><strong>Makasu</strong> is INVITING you to play ML.<br>Would you like to come?</p>
+    <button class="btn yes" onclick="acceptInvite()">YES COMING</button>
+    <button class="btn no" onclick="declineInvite()">NOT NOW</button>
+  </div>
+</div>
+
+<script>
+  // Ensures music plays on mobile after interaction
+  document.addEventListener("click", function () {
+    const music = document.getElementById("bgMusic");
+    if (music.paused) {
+      music.play().catch(() => {});
+    }
+  });
+
+  function acceptInvite() {
+    document.getElementById("gameModal").innerHTML = `
+      <div class="modal">
+        <p style="font-size: 1.5rem;">Waiting in lobby...</p>
+      </div>
+    `;
+  }
+
+  function declineInvite() {
+    alert("YOU CAN'T DECLINE WE NEED TO PUSH RANK!");
+  }
+</script>
+
+</body>
+</html>
